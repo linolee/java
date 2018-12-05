@@ -29,7 +29,7 @@ public class UseMath {
 		int i = 0;
 		while (i < tempPass.length) {
 			double d = Math.random();
-			int tempnum = ((int) (d * 75 + 48));
+			int tempnum = ((int) (d * 75 + 48+1));
 
 			if (tempnum > 57 && tempnum < 65) {
 				tempnum = 0;

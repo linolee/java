@@ -16,7 +16,7 @@ public class HW1 {
 	int[] picked = new int[NUMOFBALL];
 
 	public int pickBall() {
-		int ball = (int) (Math.random() * MAXBALLNUM);
+		int ball = (int) (Math.random() * MAXBALLNUM)+1;
 		return ball;
 	}// 1. 1~MAXBALLNUM 사이 공을 뽑는 method
 
