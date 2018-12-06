@@ -56,6 +56,7 @@ public class HW3 {
 		}
 	}// 4. 1을 한번 시행하고나서 2,3을 반복해서 pickedballs를 가득 채우는 method
 
+	
 	public void printlotto() {
 		for (int i = 0; i < pickedballs.length; i++) {
 			System.out.printf("[%s]", pickedballs[i]);
@@ -66,7 +67,6 @@ public class HW3 {
 		HW3 hw3 = new HW3();
 		hw3.lotto();
 		hw3.printlotto();
-
 	}
 
 }
