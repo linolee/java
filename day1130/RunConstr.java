@@ -14,6 +14,7 @@ public class RunConstr {
 		
 		
 		
+		@SuppressWarnings("unused")
 		SubConstr sc2 = new SubConstr(100);
 		
 		//부모 인자 100, 부모 기본, 자식기본, 자식 인자 100

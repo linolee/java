@@ -20,21 +20,20 @@ public class HW2 {
 	ArrayList<String> name = new ArrayList<>();
 	ArrayList<String> pickedname = new ArrayList<>();
 	ArrayList<Integer> score = new ArrayList<>();
-
+	int num;
+	
 	public HW2(int num) {
+		this.num = num;
 		putName();
 		pickName(num);
-		score(num);
-		print(num);
+
 	}
 
 	public HW2() {
 		Random r = new Random();
-		int num = r.nextInt(5) + 2;
+		this.num = r.nextInt(5) + 2;
 		putName();
 		pickName(num);
-		score(num);
-		print(num);
 	}
 
 //	public ArrayList<String> makeName(){
@@ -72,7 +71,17 @@ public class HW2 {
 		for (int i = 0; i < num; i++) {
 			score.add(r.nextInt(101));
 		}
+		this.num = num;
 
+		return score;
+	}
+	
+	public ArrayList<Integer> score() {
+		Random r = new Random();
+		for (int i = 0; i < this.num; i++) {
+			score.add(r.nextInt(101));
+		}
+		
 		return score;
 	}
 	// 4.n개의 랜덤점수 리스트를 만드는 method
@@ -95,13 +104,24 @@ public class HW2 {
 			printNameScore();
 		}
 	}
+	public void print() {
+		
+		if (num < 2 || num > 6) {
+			System.out.printf("2에서 6 사이의 숫자를 입력해주세요");
+		} else {
+			printNameScore();
+		}
+	}
 	// 6.n명의 이름과 점수를 순서대로 출력하는 method
 
 
 
 	public static void main(String[] args) {
 		HW2 hw1 = new HW2(3);
-		
+		hw1.score();
+		hw1.print();
 		HW2 hw2 = new HW2();
+		hw2.score();
+		hw2.print();
 	}// main
 }// class

@@ -10,6 +10,7 @@ import java.util.Random;
  */
 public class TestImport {
 
+	@SuppressWarnings({ "unused", "rawtypes" })
 	public static void main(String[] args) {
 		Random r = new Random();
 		Random r1 = new Random();

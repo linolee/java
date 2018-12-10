@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class UsePerson {
 
+	@SuppressWarnings("deprecation")
 	public static void main(String[] args) {
 		HongGilDong gd = new HongGilDong();
 		gd.setName("홍길동");//부모의 method 사용
