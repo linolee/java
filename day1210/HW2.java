@@ -1,7 +1,6 @@
 package day1210;
 
 import java.awt.Button;
-import java.awt.Font;
 import java.awt.Frame;
 import java.awt.Label;
 import java.awt.List;
@@ -19,7 +18,7 @@ public class HW2 extends Frame{
 		Label fontStyle = new Label("글꼴스타일");
 		Label size = new Label("크기");
 		Label look = new Label("보기");
-		TextField look_text = new TextField("AaBbYyZz");
+		Label look_text = new Label("AaBbYyZz");
 		
 		TextField font_text = new TextField();
 		TextField fontStyle_text = new TextField();
