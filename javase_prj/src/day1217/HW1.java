@@ -1,6 +1,7 @@
 package day1217;
 
 import java.awt.List;
+import java.text.DecimalFormat;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -25,11 +26,12 @@ public class HW1 extends JFrame {
 		name = new List();
 		javaScore = new List();
 		oracleScore = new List();
+		boolean flag;
 
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		boolean flag = true;
+		flag = true;
 		while (flag) {
 			menuDialog();
 			if (inputStr == null) {
@@ -67,6 +69,7 @@ public class HW1 extends JFrame {
 				int checkint;
 				checkint = Integer.parseInt(tempScoreArray[1]);
 				checkint = Integer.parseInt(tempScoreArray[2]);
+				JOptionPane.showMessageDialog(null,"입력성공");
 			} catch (NumberFormatException nfe) {
 				JOptionPane.showMessageDialog(null, "점수는 정수로 정확히 입력해주세요.\n예)이름,자바점수,오라클점수", "경고", JOptionPane.WARNING_MESSAGE);
 				return;
@@ -81,7 +84,7 @@ public class HW1 extends JFrame {
 		if (name.getItemCount() == 0) {
 			JOptionPane.showMessageDialog(null, "데이터가 없습니다.");
 		} else {
-			JTextArea jta = new JTextArea(10, 40);
+			JTextArea jta = new JTextArea(10, 60);
 			jta.setEditable(false);
 			jta.append("번호\t이름\t자바\t오라클\t총점\t평균\n");
 			int numOfStu = name.getItemCount();
@@ -93,7 +96,10 @@ public class HW1 extends JFrame {
 						+ (tempJava + tempOracle) + "\t" + (tempJava / 2 + tempOracle / 2) + "\n");
 				sum += tempJava + tempOracle;
 			}
-			jta.append("\t\t\t 총점 : " + sum + ", 평균 : " + (sum / numOfStu / 2));
+			DecimalFormat df = new DecimalFormat("0.00");
+			
+			double avg = ((double)sum / (double)numOfStu / 2);
+			jta.append("\t\t\t 총점 : " + sum + ", 평균 : " + df.format(avg));
 
 			JScrollPane jsp = new JScrollPane(jta);
 
