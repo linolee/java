@@ -8,9 +8,9 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 
 import kr.co.sist.memo.view.MemoFormat;
 
@@ -73,19 +73,31 @@ public class MemoFormatEvt extends WindowAdapter implements ActionListener, Item
 	 * 설정한 폰트상태를 파일로 저장 - 다음번에 프로그램이 실행되면 현재 저장된 폰트값을 적용하여 TA를 설정.
 	 */
 	private void fontStausSave() throws IOException {
-		BufferedWriter bw = null;
+//		BufferedWriter bw = null;
+		ObjectOutputStream oos = null;
 		try {
 			Font fontTemp = mf.getLblPreview().getFont();
-			StringBuilder fontData = new StringBuilder();
-			fontData.append(fontTemp.getFamily()).append(",")
-			.append(fontTemp.getStyle()).append(",").append(fontTemp.getSize());
+			oos = new ObjectOutputStream(new FileOutputStream("c:/dev/temp/memo.dat"));
+			oos.writeObject(fontTemp);
+			oos.flush();
 			
-			bw = new BufferedWriter(new FileWriter("c:/dev/temp/memo.dat"));
-			bw.write(fontData.toString());
-			bw.flush();
+			
+			
+//			Font fontTemp = mf.getLblPreview().getFont();
+//			StringBuilder fontData = new StringBuilder();
+//			fontData.append(fontTemp.getFamily()).append(",")
+//			.append(fontTemp.getStyle()).append(",").append(fontTemp.getSize());
+//			
+//			
+//			bw = new BufferedWriter(new FileWriter("c:/dev/temp/memo.dat"));
+//			bw.write(fontData.toString());
+//			bw.flush();
 		} finally {
-			if (bw != null) {
-				bw.close();
+//			if (bw != null) {
+//				bw.close();
+//			}
+			if (oos != null) {
+				oos.close();
 			}
 		}
 	}
